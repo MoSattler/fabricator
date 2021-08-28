@@ -29,7 +29,7 @@ function Fabricator<
   const fabricate = (overwriteInstructions: InstructionsOverwrite<M> = {}) => {
     const instructionsWithOverwrite = {
       ...instructions,
-      ...overwriteInstructions,
+      ...overwriteInstructions
     };
     const object = Object.keys(instructionsWithOverwrite).reduce(
       (object, key) => {
