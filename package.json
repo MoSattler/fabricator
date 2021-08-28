@@ -1,6 +1,32 @@
 {
-  "name": "@travelperksl/fabricator",
   "version": "0.0.0-development",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "cm": "npx git-cz"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "name": "@mosattler/fabricator",
   "description": "Fabricate objects for your tests",
   "keywords": [
     "fabricator",
@@ -8,38 +34,26 @@
     "fabricate",
     "testing"
   ],
-  "main": "dist/fabricator.js",
-  "scripts": {
-    "test": "jest --coverage",
-    "build": "babel src -d dist",
-    "travis-deploy-once": "travis-deploy-once",
-    "semantic-release": "semantic-release",
-    "prettier": "prettier",
-    "cm": "npx git-cz"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/travelperk/fabricator.git"
-  },
-  "bugs": {
-    "url": "https://github.com/travelperk/fabricator/issues"
-  },
-  "homepage": "https://github.com/travelperk/fabricator#readme",
-  "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
-    "babel-jest": "^25.1.0",
-    "husky": "^4.2.3",
-    "jest": "^25.1.0",
-    "lint-staged": "^10.0.7",
-    "prettier": "^1.19.1",
-    "semantic-release": "^17.0.3",
-    "travis-deploy-once": "5.0.11"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
+  "author": "Mo Sattler",
+  "module": "dist/fabricator.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/fabricator.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/fabricator.esm.js",
+      "limit": "10 KB"
     }
-  }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "5.0.3",
+    "@types/lodash": "4.14.172",
+    "husky": "7.0.2",
+    "size-limit": "5.0.3",
+    "tsdx": "0.14.1",
+    "tslib": "2.3.1",
+    "typescript": "4.4.2"
+  },
+  "dependencies": {}
 }
