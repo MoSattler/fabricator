@@ -1,8 +1,8 @@
-import { Fabricator } from '../src/'
+import { Fabricator } from "../src/";
 
-describe('fabricator', () => {
-  it('should export Fabricator()', () => {
-    expect(Fabricator).toBeDefined()
-    expect(typeof Fabricator).toBe('function')
-  })
-})
+describe("fabricator", () => {
+  it("should export Fabricator()", () => {
+    expect(Fabricator).toBeDefined();
+    expect(typeof Fabricator).toBe("function");
+  });
+});

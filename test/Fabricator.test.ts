@@ -10,7 +10,7 @@ describe("Fabricator()", () => {
     const user = Fabricator({
       id: 1,
       firstName: () => "John",
-      lastName: () => "Doe",
+      lastName: () => "Doe"
     });
     expect(user()).toEqual({ id: 1, firstName: "John", lastName: "Doe" });
   });
@@ -25,7 +25,7 @@ describe("Fabricator()", () => {
       const user = Fabricator({
         id: () => 1,
         firstName: () => "John",
-        lastName: () => "Doe",
+        lastName: () => "Doe"
       });
       const admin = user.extend({});
       expect(user()).toEqual({ id: 1, firstName: "John", lastName: "Doe" });
@@ -37,7 +37,7 @@ describe("Fabricator()", () => {
         id: () => 1,
         firstName: () => "John",
         lastName: () => "Doe",
-        admin: () => false,
+        admin: () => false
       });
 
       const admin = user.extend({ admin: () => true });
@@ -46,13 +46,13 @@ describe("Fabricator()", () => {
         id: 1,
         firstName: "John",
         lastName: "Doe",
-        admin: false,
+        admin: false
       });
       expect(admin()).toEqual({
         id: 1,
         firstName: "John",
         lastName: "Doe",
-        admin: true,
+        admin: true
       });
     });
   });
