@@ -23,7 +23,7 @@ generate objects in JavaScript. It is particularly useful for testing.
 
 Models are defined with `Fabricator()` in this way:
 
-```js
+```ts
 import { Fabricator } from "@mosattler/fabricator";
 import faker from "faker";
 import { uniqueId } from "lodash";
@@ -47,7 +47,7 @@ library like [faker](https://www.npmjs.com/package/faker).
 
 You can also extend existing models. For example:
 
-```js
+```ts
 interface Admin extends User {
   admin: true;
 }
@@ -62,7 +62,7 @@ In this case, `adminFabricator` will inherit all the properties from
 
 Once your model is defined you can create it by calling the returned function:
 
-```js
+```ts
 const user = userFabricator();
 // => { id: 1, name: 'John Doe', admin: false }
 const admin = adminFabricator();
@@ -71,7 +71,7 @@ const admin = adminFabricator();
 
 You can overwrite some values by passing a model definition as parameter:
 
-```js
+```ts
 const blockedUser = userFabricator({ isBlocked: true });
 // => { id: 3, name: 'Donald Brown', admin: false, isBlocked: true }
 ```
@@ -80,7 +80,7 @@ Note that there's a difference between passing a function and a static value in
 a fabricator definition. A function gets executed every time you create a new
 object, a constant value is cached. Consider the following example:
 
-```js
+```ts
 const withConstant = Fabricator({ foo: Math.random() });
 withConstant(); // => { foo: 0.11134742452557367 }
 withConstant(); // => { foo: 0.11134742452557367 }
