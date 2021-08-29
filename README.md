@@ -28,7 +28,13 @@ import { Fabricator } from "@mosattler/fabricator";
 import faker from "faker";
 import { uniqueId } from "lodash";
 
-const userFabricator = Fabricator({
+interface User {
+  id: number;
+  name: string;
+  admin: false;
+}
+
+const userFabricator = Fabricator<User>({
   id: () => uniqueId(),
   name: () => faker.name.firstName() + faker.name.lastName(),
   admin: false,
@@ -42,7 +48,11 @@ library like [faker](https://www.npmjs.com/package/faker).
 You can also extend existing models. For example:
 
 ```js
-const adminFabricator = userFabricator.extend({ admin: true });
+interface Admin extends User {
+  admin: true;
+}
+
+const adminFabricator = userFabricator.extend<Admin>({ admin: true });
 ```
 
 In this case, `adminFabricator` will inherit all the properties from
