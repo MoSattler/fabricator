@@ -26,6 +26,7 @@ Models are defined with `Fabricator()` in this way:
 ```js
 import { Fabricator } from "@mosattler/fabricator";
 import faker from "faker";
+import { uniqueId } from "lodash";
 
 const userFabricator = Fabricator({
   id: () => uniqueId(),
